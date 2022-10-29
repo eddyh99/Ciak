@@ -1,4 +1,5 @@
 import 'package:ciak_live/utils/extensions.dart';
+import 'package:ciak_live/widgets/backscreens/videowrapper_widget.dart';
 import 'package:flutter/material.dart';
 
 class PostFeedContent extends StatelessWidget {
@@ -70,6 +71,19 @@ class PostContent {
         itemBuilder: (context, index) {
           return image(images[index], aspectRatio: aspectRatio);
         },
+      ),
+    );
+  }
+
+  static Widget video(String videoPath,
+      {double? aspectRatio, bool useController = false}) {
+    return Card(
+      elevation: 0.0,
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      child: VideoWrapper(
+        videoPath: videoPath,
+        aspectRatio: aspectRatio,
+        useController: useController,
       ),
     );
   }

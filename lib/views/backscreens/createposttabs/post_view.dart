@@ -1,7 +1,6 @@
 import 'package:ciak_live/utils/extensions.dart';
 import 'package:ciak_live/widgets/backscreens/gradient_dropdown_widget.dart';
 import 'package:ciak_live/widgets/backscreens/gradient_textfield_widget.dart';
-import 'package:ciak_live/widgets/backscreens/postfeed_content_widget.dart';
 import 'package:ciak_live/widgets/backscreens/profile_avatar_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -111,9 +110,13 @@ class _PostViewState extends State<PostView> {
                           constraints: BoxConstraints(maxWidth: 75.w),
                           margin: EdgeInsets.only(top: 0.5.h),
                           height: 24.h,
-                          child: PostContent.image(
+                          child: const SizedBox.shrink()
+                          /*Image post for test
+                        PostContent.image(
                               Image.asset("assets/images/image-post-2.jpg"),
-                              aspectRatio: 16 / 9),
+                              aspectRatio: 16 / 9)
+                        */
+                          ,
                         )
                       ],
                     ),

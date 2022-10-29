@@ -40,14 +40,18 @@ class _FeedsViewState extends State<FeedsView> {
             ),
             actions: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.toNamed("/back-screen/alerts");
+                },
                 icon: const NotificationIndicator(
                   child: Icon(Icons.notifications_none_outlined),
                 ),
                 splashRadius: 15.sp,
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.toNamed("/back-screen/messages");
+                },
                 icon: const NotificationIndicator(
                     child: Icon(Icons.mail_outlined)),
                 splashRadius: 15.sp,
@@ -319,6 +323,124 @@ class _FeedsViewState extends State<FeedsView> {
                         ratingBar: RatingBar(
                           itemSize: 14.sp,
                           initialRating: 4,
+                          direction: Axis.horizontal,
+                          allowHalfRating: false,
+                          itemCount: 5,
+                          ratingWidget: RatingWidget(
+                            full: const Icon(
+                              Icons.star,
+                              color: Colors.yellow,
+                            ),
+                            half: const Icon(
+                              Icons.star_half,
+                              color: Colors.yellow,
+                            ),
+                            empty: const Icon(Icons.star),
+                          ),
+                          onRatingUpdate: (rating) {
+                            printDebug(rating);
+                          },
+                        ),
+                        trailing: [
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.share_outlined,
+                              size: 15.sp,
+                            ),
+                            splashRadius: 15.sp,
+                            iconSize: 15.sp,
+                          ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Image.asset(
+                              "assets/images/vs.png",
+                              scale: 1.2,
+                              color: Colors.white.withOpacity(0.5),
+                              colorBlendMode: BlendMode.srcATop,
+                            ),
+                            splashRadius: 15.sp,
+                            iconSize: 15.sp,
+                          ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.bookmark_border_outlined,
+                              size: 15.sp,
+                            ),
+                            splashRadius: 15.sp,
+                            iconSize: 15.sp,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const Divider(),
+              SizedBox(
+                //Feeds post
+                child: Column(
+                  children: [
+                    PostFeedHeader(
+                      leading: ProfileAvatar(
+                        image: Image.asset("assets/images/people-1.jpg"),
+                        radius: 16.sp,
+                      ),
+                      title: "Bob Harley",
+                      subtitle: "3h ago",
+                      trailing: [
+                        IconButton(
+                          onPressed: () {},
+                          icon: Image.asset(
+                            "assets/images/cart.png",
+                            scale: 1.0,
+                          ),
+                          splashRadius: 15.sp,
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: Image.asset(
+                            "assets/images/tip.png",
+                            scale: 1.0,
+                          ),
+                          splashRadius: 15.sp,
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.more_vert),
+                          splashRadius: 15.sp,
+                        )
+                      ],
+                    ),
+                    PostFeedContent(
+                      content: PostContent.video(
+                          "assets/videos/video-post-landscape.mp4",
+                          useController: true),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 3.w),
+                      child: PostFeedFooter(
+                        leading: Row(
+                          children: [
+                            IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.favorite_outline,
+                                size: 15.sp,
+                              ),
+                              splashRadius: 15.sp,
+                              iconSize: 15.sp,
+                            ),
+                            Text(
+                              "31,798",
+                              style: TextStyle(fontSize: 10.sp),
+                            ),
+                          ],
+                        ),
+                        ratingBar: RatingBar(
+                          itemSize: 14.sp,
+                          initialRating: 5,
                           direction: Axis.horizontal,
                           allowHalfRating: false,
                           itemCount: 5,

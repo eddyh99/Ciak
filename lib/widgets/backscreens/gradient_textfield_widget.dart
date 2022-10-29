@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 
 class GradientTextField extends StatelessWidget {
-  const GradientTextField({
-    super.key,
-    this.controller,
-    this.hintText,
-    this.suffixText,
-  });
+  const GradientTextField(
+      {super.key,
+      this.controller,
+      this.hintText,
+      this.suffixText,
+      this.maxLength,
+      this.maxLines,
+      this.keyboardType,
+      this.focusNode});
 
   final TextEditingController? controller;
+  final TextInputType? keyboardType;
   final String? hintText;
   final String? suffixText;
+  final int? maxLength;
+  final int? maxLines;
+  final FocusNode? focusNode;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +33,11 @@ class GradientTextField extends StatelessWidget {
           borderRadius: const BorderRadius.all(Radius.circular(5.0)),
         ),
         child: TextField(
+          focusNode: focusNode,
           controller: controller,
+          maxLength: maxLength,
+          maxLines: maxLines,
+          keyboardType: keyboardType,
           decoration: InputDecoration(
             suffixText: suffixText,
             hintText: hintText,

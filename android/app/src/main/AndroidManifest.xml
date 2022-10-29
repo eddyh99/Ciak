@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.softwarebali.ciak_live">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="ciak_live"
         android:name="${applicationName}"

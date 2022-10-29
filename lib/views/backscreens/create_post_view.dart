@@ -1,4 +1,7 @@
 import 'package:ciak_live/utils/extensions.dart';
+import 'package:ciak_live/views/backscreens/createposttabs/cam2cam_view.dart';
+import 'package:ciak_live/views/backscreens/createposttabs/live_view.dart';
+import 'package:ciak_live/views/backscreens/createposttabs/meetingroom_view.dart';
 import 'package:ciak_live/views/backscreens/createposttabs/post_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,7 +15,35 @@ class CreatePostView extends StatefulWidget {
   }
 }
 
-class _CreatePostViewState extends State<CreatePostView> {
+class _CreatePostViewState extends State<CreatePostView>
+    with TickerProviderStateMixin {
+  late TabController _postTabController;
+  int _tabIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _postTabController = TabController(
+      initialIndex: _tabIndex,
+      length: 4,
+      vsync: this,
+    );
+    _postTabController.addListener(() {
+      if (_postTabController.indexIsChanging) {
+        setState(() {
+          _tabIndex = _postTabController.index;
+        });
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _postTabController.removeListener(() {});
+    _postTabController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,26 +80,29 @@ class _CreatePostViewState extends State<CreatePostView> {
               style: Theme.of(context).textTheme.titleMedium,
             ),
             actions: [
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 2.h),
-                margin: EdgeInsets.symmetric(horizontal: 2.w),
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: const Text("Publish"),
-                ),
-              ),
+              _tabIndex == 0
+                  ? Container(
+                      padding: EdgeInsets.symmetric(vertical: 2.h),
+                      margin: EdgeInsets.symmetric(horizontal: 2.w),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: const Text("Publish"),
+                      ),
+                    )
+                  : const SizedBox.shrink(),
             ],
           ),
-          body: const SafeArea(
+          body: SafeArea(
             child: FractionallySizedBox(
               heightFactor: 1.0,
               widthFactor: 1.0,
               child: TabBarView(
-                children: [
+                controller: _postTabController,
+                children: const [
                   PostView(),
-                  Center(),
-                  Center(),
-                  Center(),
+                  LiveView(),
+                  CamToCamView(),
+                  MeetingRoomView(),
                 ],
               ),
             ),
@@ -81,6 +115,7 @@ class _CreatePostViewState extends State<CreatePostView> {
                 border: Border.all(color: Colors.grey),
                 borderRadius: BorderRadius.circular(20)),
             child: TabBar(
+              controller: _postTabController,
               labelPadding: EdgeInsets.symmetric(horizontal: 2.w),
               isScrollable: true,
               splashFactory: NoSplash.splashFactory,
