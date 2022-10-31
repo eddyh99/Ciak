@@ -77,13 +77,16 @@ class PostContent {
 
   static Widget video(String videoPath,
       {double? aspectRatio, bool useController = false}) {
-    return Card(
-      elevation: 0.0,
-      clipBehavior: Clip.antiAliasWithSaveLayer,
-      child: VideoWrapper(
-        videoPath: videoPath,
-        aspectRatio: aspectRatio,
-        useController: useController,
+    return Container(
+      constraints: BoxConstraints(maxHeight: 40.h),
+      child: Card(
+        elevation: 0.0,
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        child: VideoWrapper(
+          videoPath: videoPath,
+          aspectRatio: aspectRatio,
+          useController: useController,
+        ),
       ),
     );
   }

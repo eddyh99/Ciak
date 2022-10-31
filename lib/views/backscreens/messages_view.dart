@@ -48,7 +48,7 @@ class _MessagesViewState extends State<MessagesView> {
               splashRadius: 25.0,
               onPressed: () {},
               icon: Image.asset(
-                "assets/images/doc-add.png",
+                "assets/images/chat-plus.png",
                 scale: 1.0,
                 color: Colors.white.withOpacity(0.5),
                 colorBlendMode: BlendMode.srcATop,
@@ -118,7 +118,7 @@ class _MessagesViewState extends State<MessagesView> {
                               .copyWith(fontWeight: FontWeight.w700),
                         )
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -137,6 +137,8 @@ class _MessagesViewState extends State<MessagesView> {
                           "Welcome to CIAK LIVE",
                           overflow: TextOverflow.ellipsis,
                         ),
+                        onPinned: (_) {},
+                        onDeleted: (_) {},
                       ),
                       const Divider(),
                       MessageTile(
@@ -147,9 +149,11 @@ class _MessagesViewState extends State<MessagesView> {
                         leadingTitle: "Bob Harley",
                         trailingTitle: "15m ago",
                         messagePreview: const Text(
-                          "Hello i'm a message preview, this is looooong message",
+                          "Hello i'm a message preview, this is very looooooooong message",
                           overflow: TextOverflow.ellipsis,
                         ),
+                        onPinned: (_) {},
+                        onDeleted: (_) {},
                       ),
                       const Divider(),
                     ],

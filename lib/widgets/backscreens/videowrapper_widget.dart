@@ -28,7 +28,8 @@ class _VideoWrapperState extends State<VideoWrapper> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset(widget.videoPath)
+    _controller = VideoPlayerController.asset(
+        widget.videoPath) //.assets diganti dengan .network saat produksi
       ..initialize().then((_) {
         setState(() {});
       });
@@ -51,9 +52,7 @@ class _VideoWrapperState extends State<VideoWrapper> {
               }
             : () {},
         child: ConstrainedBox(
-          constraints: BoxConstraints(
-            maxHeight: 30.h,
-          ),
+          constraints: const BoxConstraints(),
           child: Stack(
             alignment: AlignmentDirectional.center,
             children: [

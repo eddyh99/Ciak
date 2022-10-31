@@ -155,7 +155,14 @@ class _FeedsViewState extends State<FeedsView> {
                       subtitle: "30m ago",
                       trailing: [
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            showContentBottomSheet(
+                              context: context,
+                              price: "\$ 2.00",
+                              text: "Are you sure to buy this content?",
+                              onConfirm: () => Navigator.pop(context),
+                            );
+                          },
                           icon: Image.asset(
                             "assets/images/cart.png",
                             scale: 1.0,
@@ -163,7 +170,18 @@ class _FeedsViewState extends State<FeedsView> {
                           splashRadius: 15.sp,
                         ),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            final TextEditingController tipController =
+                                TextEditingController(text: "0.00");
+                            showContentTipDialog(
+                              context: context,
+                              controller: tipController,
+                              prefixCurrency: "\$",
+                              onConfirm: () {
+                                Navigator.of(context).pop();
+                              },
+                            );
+                          },
                           icon: Image.asset(
                             "assets/images/tip.png",
                             scale: 1.0,
@@ -171,7 +189,12 @@ class _FeedsViewState extends State<FeedsView> {
                           splashRadius: 15.sp,
                         ),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            showContentOptionDialog(
+                                context: context,
+                                onShowPost: () {},
+                                onReportPost: () {});
+                          },
                           icon: const Icon(Icons.more_vert),
                           splashRadius: 15.sp,
                         )
@@ -273,15 +296,33 @@ class _FeedsViewState extends State<FeedsView> {
                       subtitle: "2h ago",
                       trailing: [
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            showContentBottomSheet(
+                              context: context,
+                              price: "\$ 2.00",
+                              text: "Are you sure to download this content?",
+                              onConfirm: () => Navigator.pop(context),
+                            );
+                          },
                           icon: Image.asset(
-                            "assets/images/cart.png",
+                            "assets/images/download.png",
                             scale: 1.0,
                           ),
                           splashRadius: 15.sp,
                         ),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            final TextEditingController tipController =
+                                TextEditingController(text: "0.00");
+                            showContentTipDialog(
+                              context: context,
+                              controller: tipController,
+                              prefixCurrency: "\$",
+                              onConfirm: () {
+                                Navigator.of(context).pop();
+                              },
+                            );
+                          },
                           icon: Image.asset(
                             "assets/images/tip.png",
                             scale: 1.0,
@@ -289,7 +330,12 @@ class _FeedsViewState extends State<FeedsView> {
                           splashRadius: 15.sp,
                         ),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            showContentOptionDialog(
+                                context: context,
+                                onShowPost: () {},
+                                onReportPost: () {});
+                          },
                           icon: const Icon(Icons.more_vert),
                           splashRadius: 15.sp,
                         )
@@ -391,15 +437,33 @@ class _FeedsViewState extends State<FeedsView> {
                       subtitle: "3h ago",
                       trailing: [
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            showContentBottomSheet(
+                              context: context,
+                              price: "\$ 2.00",
+                              text: "Are you sure to download this content?",
+                              onConfirm: () => Navigator.pop(context),
+                            );
+                          },
                           icon: Image.asset(
-                            "assets/images/cart.png",
+                            "assets/images/download.png",
                             scale: 1.0,
                           ),
                           splashRadius: 15.sp,
                         ),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            final TextEditingController tipController =
+                                TextEditingController(text: "0.00");
+                            showContentTipDialog(
+                              context: context,
+                              controller: tipController,
+                              prefixCurrency: "\$",
+                              onConfirm: () {
+                                Navigator.of(context).pop();
+                              },
+                            );
+                          },
                           icon: Image.asset(
                             "assets/images/tip.png",
                             scale: 1.0,
@@ -407,7 +471,12 @@ class _FeedsViewState extends State<FeedsView> {
                           splashRadius: 15.sp,
                         ),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            showContentOptionDialog(
+                                context: context,
+                                onShowPost: () {},
+                                onReportPost: () {});
+                          },
                           icon: const Icon(Icons.more_vert),
                           splashRadius: 15.sp,
                         )
@@ -516,15 +585,33 @@ class _FeedsViewState extends State<FeedsView> {
                       subtitle: "4h ago",
                       trailing: [
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            showContentBottomSheet(
+                              context: context,
+                              price: "\$ 2.00",
+                              text: "Are you sure to download this content?",
+                              onConfirm: () => Navigator.pop(context),
+                            );
+                          },
                           icon: Image.asset(
-                            "assets/images/cart.png",
+                            "assets/images/download.png",
                             scale: 1.0,
                           ),
                           splashRadius: 15.sp,
                         ),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            final TextEditingController tipController =
+                                TextEditingController(text: "0.00");
+                            showContentTipDialog(
+                              context: context,
+                              controller: tipController,
+                              prefixCurrency: "\$",
+                              onConfirm: () {
+                                Navigator.of(context).pop();
+                              },
+                            );
+                          },
                           icon: Image.asset(
                             "assets/images/tip.png",
                             scale: 1.0,
@@ -532,7 +619,12 @@ class _FeedsViewState extends State<FeedsView> {
                           splashRadius: 15.sp,
                         ),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            showContentOptionDialog(
+                                context: context,
+                                onShowPost: () {},
+                                onReportPost: () {});
+                          },
                           icon: const Icon(Icons.more_vert),
                           splashRadius: 15.sp,
                         )

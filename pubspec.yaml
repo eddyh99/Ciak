@@ -43,6 +43,7 @@ dependencies:
   flutter_switch: ^0.3.2
   video_player: ^2.4.7
   visibility_detector: ^0.3.3
+  flutter_slidable: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -100,6 +101,7 @@ flutter:
     - assets/images/message.png
     - assets/images/block-user.png
     - assets/images/doc-add.png
+    - assets/images/chat-plus.png
     - assets/videos/video-post-landscape.mp4
     - assets/videos/video-post-potrait.mp4
 

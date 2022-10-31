@@ -5,6 +5,7 @@ class GradientTextField extends StatelessWidget {
       {super.key,
       this.controller,
       this.hintText,
+      this.prefixText,
       this.suffixText,
       this.maxLength,
       this.maxLines,
@@ -14,6 +15,7 @@ class GradientTextField extends StatelessWidget {
   final TextEditingController? controller;
   final TextInputType? keyboardType;
   final String? hintText;
+  final String? prefixText;
   final String? suffixText;
   final int? maxLength;
   final int? maxLines;
@@ -39,6 +41,7 @@ class GradientTextField extends StatelessWidget {
           maxLines: maxLines,
           keyboardType: keyboardType,
           decoration: InputDecoration(
+            prefixText: prefixText,
             suffixText: suffixText,
             hintText: hintText,
             fillColor: Colors.transparent,
