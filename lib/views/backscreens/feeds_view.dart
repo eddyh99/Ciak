@@ -247,7 +247,9 @@ class _FeedsViewState extends State<FeedsView> {
                         ),
                         trailing: [
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              showShareBottomSheet(context: context);
+                            },
                             icon: Icon(
                               Icons.share_outlined,
                               size: 15.sp,
@@ -389,7 +391,9 @@ class _FeedsViewState extends State<FeedsView> {
                         ),
                         trailing: [
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              showShareDialog(context: context);
+                            },
                             icon: Icon(
                               Icons.share_outlined,
                               size: 15.sp,
@@ -530,7 +534,9 @@ class _FeedsViewState extends State<FeedsView> {
                         ),
                         trailing: [
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              showShareDialog(context: context);
+                            },
                             icon: Icon(
                               Icons.share_outlined,
                               size: 15.sp,
@@ -691,7 +697,9 @@ class _FeedsViewState extends State<FeedsView> {
                         ),
                         trailing: [
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              showShareDialog(context: context);
+                            },
                             icon: Icon(
                               Icons.share_outlined,
                               size: 15.sp,

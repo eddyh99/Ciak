@@ -80,7 +80,9 @@ class _UsersViewState extends State<UsersView> {
                                   children: [
                                     IconButton(
                                       splashRadius: 25.0,
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Get.toNamed("/back-screen/send-note");
+                                      },
                                       icon: Container(
                                         decoration: BoxDecoration(
                                           border: Border.all(
@@ -104,7 +106,12 @@ class _UsersViewState extends State<UsersView> {
                                     ),
                                     IconButton(
                                       splashRadius: 25.0,
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        showBlockUserBottomSheet(
+                                            context: context,
+                                            username: "Rebecca Kajon",
+                                            onConfirm: () {});
+                                      },
                                       icon: Container(
                                         decoration: BoxDecoration(
                                           border: Border.all(
@@ -206,7 +213,12 @@ class _UsersViewState extends State<UsersView> {
                                     SizedBox(
                                       height: 4.h,
                                       child: GradientOutlinedButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          showUserSubscriptionBottomSheet(
+                                              context: context,
+                                              subscriptionText: "1 Week \$20",
+                                              onConfirm: () {});
+                                        },
                                         child: Text(
                                           "1 Week \$20",
                                           style: TextStyle(fontSize: 10.sp),
@@ -216,7 +228,12 @@ class _UsersViewState extends State<UsersView> {
                                     SizedBox(
                                       height: 4.h,
                                       child: GradientOutlinedButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          showUserSubscriptionBottomSheet(
+                                              context: context,
+                                              subscriptionText: "2 Weeks \$50",
+                                              onConfirm: () {});
+                                        },
                                         child: Text(
                                           "2 Weeks \$50",
                                           style: TextStyle(fontSize: 10.sp),
@@ -226,7 +243,12 @@ class _UsersViewState extends State<UsersView> {
                                     SizedBox(
                                       height: 4.h,
                                       child: GradientOutlinedButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          showUserSubscriptionBottomSheet(
+                                              context: context,
+                                              subscriptionText: "1 Month \$200",
+                                              onConfirm: () {});
+                                        },
                                         child: Text(
                                           "1 Month \$200",
                                           style: TextStyle(fontSize: 10.sp),

@@ -1,6 +1,7 @@
 import 'package:ciak_live/utils/extensions.dart';
 import 'package:ciak_live/widgets/backscreens/gradient_dropdown_widget.dart';
 import 'package:ciak_live/widgets/backscreens/gradient_textfield_widget.dart';
+import 'package:ciak_live/widgets/backscreens/postfeed_content_widget.dart';
 import 'package:ciak_live/widgets/backscreens/profile_avatar_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -89,6 +90,7 @@ class _PostViewState extends State<PostView> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         IconButton(
+                          iconSize: 30.sp,
                           splashRadius: 25.0,
                           onPressed: () {},
                           icon: Container(
@@ -102,7 +104,10 @@ class _PostViewState extends State<PostView> {
                               backgroundColor:
                                   Theme.of(context).scaffoldBackgroundColor,
                               radius: 16.sp,
-                              child: const Icon(Icons.add),
+                              child: Icon(
+                                Icons.add,
+                                size: 24.sp,
+                              ),
                             ),
                           ),
                         ),
@@ -110,13 +115,63 @@ class _PostViewState extends State<PostView> {
                           constraints: BoxConstraints(maxWidth: 75.w),
                           margin: EdgeInsets.only(top: 0.5.h),
                           height: 24.h,
-                          child: const SizedBox.shrink()
-                          /*Image post for test
-                        PostContent.image(
-                              Image.asset("assets/images/image-post-2.jpg"),
-                              aspectRatio: 16 / 9)
-                        */
-                          ,
+                          child: Stack(
+                            children: [
+                              const SizedBox.shrink(),
+                              /*Image post for test
+                              PostContent.image(
+                                  Image.asset("assets/images/image-post-2.jpg"),
+                                  aspectRatio: 16 / 9),*/
+
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.grey,
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    IconButton(
+                                      splashRadius: 0.1,
+                                      splashColor: Colors.transparent,
+                                      onPressed: () {},
+                                      icon: Image.asset(
+                                        "assets/images/posting-image.png",
+                                        scale: 1.4,
+                                      ),
+                                    ),
+                                    IconButton(
+                                      splashRadius: 0.1,
+                                      splashColor: Colors.transparent,
+                                      onPressed: () {},
+                                      icon: Image.asset(
+                                        "assets/images/posting-gif.png",
+                                        scale: 1.4,
+                                      ),
+                                    ),
+                                    IconButton(
+                                      splashRadius: 0.1,
+                                      splashColor: Colors.transparent,
+                                      onPressed: () {},
+                                      icon: Image.asset(
+                                        "assets/images/posting-camera.png",
+                                        scale: 1.4,
+                                      ),
+                                    ),
+                                    IconButton(
+                                      splashRadius: 0.1,
+                                      splashColor: Colors.transparent,
+                                      onPressed: () {},
+                                      icon: Image.asset(
+                                        "assets/images/posting-file.png",
+                                        scale: 1.4,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         )
                       ],
                     ),

@@ -46,7 +46,10 @@ class _MessagesViewState extends State<MessagesView> {
           Center(
             child: IconButton(
               splashRadius: 25.0,
-              onPressed: () {},
+              onPressed: () {
+                Get.toNamed("/back-screen/recipient",
+                    arguments: {"type": "chat"});
+              },
               icon: Image.asset(
                 "assets/images/chat-plus.png",
                 scale: 1.0,

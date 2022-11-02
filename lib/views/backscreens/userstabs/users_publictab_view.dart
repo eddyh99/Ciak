@@ -35,7 +35,15 @@ class _UsersPublicTabViewState extends State<UsersPublicTabView> {
                 subtitle: "4h ago",
                 trailing: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      final TextEditingController tipController =
+                          TextEditingController(text: "0.00");
+                      showContentTipDialog(
+                          context: context,
+                          controller: tipController,
+                          prefixCurrency: "\$ ",
+                          onConfirm: () {});
+                    },
                     icon: Image.asset(
                       "assets/images/tip.png",
                       scale: 1.0,
@@ -43,7 +51,9 @@ class _UsersPublicTabViewState extends State<UsersPublicTabView> {
                     splashRadius: 15.sp,
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      showContentOptionDialog(context: context);
+                    },
                     icon: const Icon(Icons.more_vert),
                     splashRadius: 15.sp,
                   )

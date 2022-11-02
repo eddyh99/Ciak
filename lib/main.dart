@@ -2,12 +2,17 @@ import 'package:ciak_live/controllers/settings_controller.dart';
 import 'package:ciak_live/utils/extensions.dart';
 import 'package:ciak_live/views/backscreens/activity_view.dart';
 import 'package:ciak_live/views/backscreens/alert_view.dart';
+import 'package:ciak_live/views/backscreens/chat_view.dart';
 import 'package:ciak_live/views/backscreens/create_post_view.dart';
+import 'package:ciak_live/views/backscreens/group_meeting_view.dart';
+import 'package:ciak_live/views/backscreens/livecam_view.dart';
 import 'package:ciak_live/views/backscreens/main.dart';
 import 'package:ciak_live/views/backscreens/feeds_view.dart';
 import 'package:ciak_live/views/backscreens/messages_view.dart';
 import 'package:ciak_live/views/backscreens/profile_view.dart';
 import 'package:ciak_live/views/backscreens/profileedits/edit_subscription_view.dart';
+import 'package:ciak_live/views/backscreens/recipients_view.dart';
+import 'package:ciak_live/views/backscreens/users_note_view.dart';
 import 'package:ciak_live/views/backscreens/users_view.dart';
 import 'package:ciak_live/views/backscreens/wallet_view.dart';
 import 'package:ciak_live/views/frontscreens/landing_view.dart';
@@ -324,6 +329,31 @@ class MyApp extends StatelessWidget {
               name: '/back-screen/messages',
               page: () => const MessagesView(),
               transition: Transition.upToDown,
+            ),
+            GetPage(
+              name: '/back-screen/send-note',
+              page: () => const UsersNoteView(),
+              transition: Transition.downToUp,
+            ),
+            GetPage(
+              name: '/back-screen/group-meeting',
+              page: () => const GroupMeetingView(),
+              transition: Transition.downToUp,
+            ),
+            GetPage(
+              name: '/back-screen/live-cam',
+              page: () => const LiveCamView(),
+              transition: Transition.downToUp,
+            ),
+            GetPage(
+              name: '/back-screen/recipient',
+              page: () => const RecipientsView(),
+              transition: Transition.downToUp,
+            ),
+            GetPage(
+              name: '/back-screen/chat',
+              page: () => const ChatView(),
+              transition: Transition.downToUp,
             ),
           ],
         );

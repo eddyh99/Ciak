@@ -42,7 +42,8 @@ class _BackScreenMainState extends State<BackScreenMain> {
       bottomNavigationBar: FooterMenu(
         controller: _pageController,
         currentIndex: pageIndex,
-        onMainButtonPressed: () => Get.toNamed("/back-screen/create-post"),
+        onMainButtonPressed: () =>
+            Get.toNamed("/back-screen/create-post"), //create-post
       ),
     );
   }
