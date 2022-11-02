@@ -1,6 +1,6 @@
-# CIAK
+# ciak_live
 
-Social Media Online
+A new Flutter project.
 
 ## Getting Started
 
