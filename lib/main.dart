@@ -1,5 +1,6 @@
 import 'package:ciak_live/controllers/settings_controller.dart';
 import 'package:ciak_live/utils/extensions.dart';
+import 'package:ciak_live/views/backscreens/activity_detail_view.dart';
 import 'package:ciak_live/views/backscreens/activity_view.dart';
 import 'package:ciak_live/views/backscreens/alert_view.dart';
 import 'package:ciak_live/views/backscreens/chat_view.dart';
@@ -289,6 +290,11 @@ class MyApp extends StatelessWidget {
               name: '/back-screen/activity',
               page: () => const ActivityView(),
               transition: Transition.fadeIn,
+            ),
+            GetPage(
+              name: '/back-screen/activity/detail',
+              page: () => const ActivityDetailView(),
+              transition: Transition.rightToLeft,
             ),
             GetPage(
               name: '/back-screen/wallet',

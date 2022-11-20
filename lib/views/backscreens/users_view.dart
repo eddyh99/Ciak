@@ -3,6 +3,7 @@ import 'package:ciak_live/utils/functions.dart';
 import 'package:ciak_live/views/backscreens/userstabs/users_publictab_view.dart';
 import 'package:ciak_live/widgets/backscreens/gradient_button_widget.dart';
 import 'package:ciak_live/widgets/backscreens/gradient_outlinedbutton_widget.dart';
+import 'package:ciak_live/widgets/backscreens/keepalivepage_widget.dart';
 import 'package:ciak_live/widgets/backscreens/profile_avatar_widget.dart';
 import 'package:ciak_live/widgets/backscreens/profile_header_widget.dart';
 import 'package:flutter/material.dart';
@@ -322,11 +323,11 @@ class _UsersViewState extends State<UsersView> {
             },
             body: const TabBarView(
               children: [
-                UsersPublicTabView(),
-                Center(child: Text("No design yet")),
-                Center(child: Text("No design yet")),
-                Center(child: Text("No design yet")),
-                Center(child: Text("No design yet")),
+                KeepAlivePage(child: UsersPublicTabView()),
+                KeepAlivePage(child: Center(child: Text("No design yet"))),
+                KeepAlivePage(child: Center(child: Text("No design yet"))),
+                KeepAlivePage(child: Center(child: Text("No design yet"))),
+                KeepAlivePage(child: Center(child: Text("No design yet"))),
               ],
             ),
           ),

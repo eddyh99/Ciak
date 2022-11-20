@@ -1,6 +1,7 @@
 import 'package:ciak_live/utils/extensions.dart';
 import 'package:ciak_live/utils/functions.dart';
 import 'package:ciak_live/views/backscreens/profiletabs/profile_publictab_view.dart';
+import 'package:ciak_live/widgets/backscreens/keepalivepage_widget.dart';
 import 'package:ciak_live/widgets/backscreens/profile_avatar_widget.dart';
 import 'package:ciak_live/widgets/backscreens/profile_header_widget.dart';
 import 'package:flutter/material.dart';
@@ -263,11 +264,11 @@ class _ProfileViewState extends State<ProfileView> {
             },
             body: const TabBarView(
               children: [
-                ProfilePublicTabView(),
-                Center(child: Text("No design yet")),
-                Center(child: Text("No design yet")),
-                Center(child: Text("No design yet")),
-                Center(child: Text("No design yet")),
+                KeepAlivePage(child: ProfilePublicTabView()),
+                KeepAlivePage(child: Center(child: Text("No design yet"))),
+                KeepAlivePage(child: Center(child: Text("No design yet"))),
+                KeepAlivePage(child: Center(child: Text("No design yet"))),
+                KeepAlivePage(child: Center(child: Text("No design yet"))),
               ],
             ),
           ),

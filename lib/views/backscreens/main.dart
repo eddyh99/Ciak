@@ -3,6 +3,7 @@ import 'package:ciak_live/views/backscreens/feeds_view.dart';
 import 'package:ciak_live/views/backscreens/profile_view.dart';
 import 'package:ciak_live/views/backscreens/wallet_view.dart';
 import 'package:ciak_live/widgets/backscreens/footermenu_widget.dart';
+import 'package:ciak_live/widgets/backscreens/keepalivepage_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -32,10 +33,10 @@ class _BackScreenMainState extends State<BackScreenMain> {
             });
           },
           children: const [
-            FeedsView(),
-            ActivityView(),
-            WalletView(),
-            ProfileView(),
+            KeepAlivePage(child: FeedsView()),
+            KeepAlivePage(child: ActivityView()),
+            KeepAlivePage(child: WalletView()),
+            KeepAlivePage(child: ProfileView()),
           ],
         ),
       ),

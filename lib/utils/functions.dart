@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:ciak_live/utils/extensions.dart';
 import 'package:ciak_live/widgets/backscreens/gradient_textfield_widget.dart';
+import 'package:ciak_live/widgets/backscreens/posts_shimmer_widget.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:open_mail_app/open_mail_app.dart';
@@ -10,6 +11,21 @@ void printDebug(Object object) {
   if (kDebugMode) {
     print(object);
   }
+}
+
+Widget postShimmer(Widget returnWidget,
+    {Future<dynamic>? future, bool isMedia = false}) {
+  return FutureBuilder(
+    future: future ?? Future.delayed(const Duration(seconds: 3), () {}),
+    builder: (context, snapshot) {
+      if (snapshot.connectionState == ConnectionState.done) {
+        return returnWidget;
+      }
+      return PostShimmer(
+        isMedia: isMedia,
+      );
+    },
+  );
 }
 
 Future<bool> openMailApp() async {
