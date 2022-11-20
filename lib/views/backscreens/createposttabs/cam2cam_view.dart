@@ -1,6 +1,7 @@
 import 'package:ciak_live/utils/extensions.dart';
 import 'package:ciak_live/widgets/backscreens/gradient_textfield_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CamToCamView extends StatefulWidget {
   const CamToCamView({super.key});
@@ -84,11 +85,14 @@ class _CamToCamViewState extends State<CamToCamView> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 3.h),
+                        margin: EdgeInsets.only(top: 2.h),
                         height: 6.h,
                         width: 30.w,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.toNamed("/back-screen/recipient",
+                                arguments: {"type": "cam"});
+                          },
                           child: const Text("Submit"),
                         ),
                       ),

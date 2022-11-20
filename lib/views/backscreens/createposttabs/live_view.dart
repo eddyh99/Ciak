@@ -2,6 +2,7 @@ import 'package:ciak_live/utils/extensions.dart';
 import 'package:ciak_live/widgets/backscreens/gradient_dropdown_widget.dart';
 import 'package:ciak_live/widgets/backscreens/gradient_textfield_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LiveView extends StatefulWidget {
   const LiveView({super.key});
@@ -217,7 +218,10 @@ class _LiveViewState extends State<LiveView> {
                         height: 6.h,
                         width: 30.w,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.offNamed("/back-screen/live-cam",
+                                arguments: {"type": "live"});
+                          },
                           child: const Text("Submit"),
                         ),
                       ),

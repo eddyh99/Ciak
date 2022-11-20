@@ -44,6 +44,7 @@ dependencies:
   video_player: ^2.4.7
   visibility_detector: ^0.3.3
   flutter_slidable: ^2.0.0
+  blur: ^3.1.0
 
 dev_dependencies:
   flutter_test:
@@ -104,6 +105,19 @@ flutter:
     - assets/images/chat-plus.png
     - assets/videos/video-post-landscape.mp4
     - assets/videos/video-post-potrait.mp4
+    - assets/images/share-icons/facebook.png
+    - assets/images/share-icons/instagram.png
+    - assets/images/share-icons/linkedin.png
+    - assets/images/share-icons/telegram.png
+    - assets/images/share-icons/tiktok.png
+    - assets/images/share-icons/twitter.png
+    - assets/images/share-icons/whatsapp.png
+    - assets/images/share-icons/youtube.png
+    - assets/images/posting-image.png
+    - assets/images/posting-gif.png
+    - assets/images/posting-camera.png
+    - assets/images/posting-file.png
+    - assets/images/send-chat.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
