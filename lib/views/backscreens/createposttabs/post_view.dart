@@ -1,7 +1,6 @@
 import 'package:ciak_live/utils/extensions.dart';
 import 'package:ciak_live/widgets/backscreens/gradient_dropdown_widget.dart';
 import 'package:ciak_live/widgets/backscreens/gradient_textfield_widget.dart';
-import 'package:ciak_live/widgets/backscreens/postfeed_content_widget.dart';
 import 'package:ciak_live/widgets/backscreens/profile_avatar_widget.dart';
 import 'package:flutter/material.dart';
 
