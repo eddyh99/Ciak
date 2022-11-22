@@ -56,7 +56,7 @@ void showUserSubscriptionBottomSheet(
     builder: (BuildContext context) {
       return Container(
         padding: EdgeInsets.symmetric(horizontal: 5.w),
-        height: 30.h,
+        height: 40.h,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
@@ -111,7 +111,7 @@ void showContentBottomSheet(
             topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0))),
     builder: (BuildContext context) {
       return SizedBox(
-        height: 30.h,
+        height: 40.h,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
@@ -131,10 +131,10 @@ void showContentBottomSheet(
                   .copyWith(color: Colors.red),
             ),
             SizedBox(
-              height: 5.h,
+              height: 3.h,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 1.h),
+              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 2.h),
               child: Text(
                 text,
                 style: Theme.of(context).textTheme.titleLarge,
@@ -163,7 +163,7 @@ void showBlockUserBottomSheet(
             topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0))),
     builder: (BuildContext context) {
       return SizedBox(
-        height: 30.h,
+        height: 40.h,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
@@ -231,7 +231,7 @@ void showShareBottomSheet({
             topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0))),
     builder: (BuildContext context) {
       return SizedBox(
-        height: 30.h,
+        height: 40.h,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
@@ -251,14 +251,15 @@ void showShareBottomSheet({
               ),
             ),
             Wrap(
-              spacing: 2.w,
+              spacing: 4.w,
               children: [
                 IconButton(
                   splashRadius: 25.0,
                   onPressed: () {},
                   icon: Image.asset(
                     "assets/images/share-icons/facebook.png",
-                    scale: 1.0,
+                    color: Colors.red,
+                    colorBlendMode: BlendMode.srcATop,
                   ),
                 ),
                 IconButton(
@@ -266,7 +267,8 @@ void showShareBottomSheet({
                   onPressed: () {},
                   icon: Image.asset(
                     "assets/images/share-icons/twitter.png",
-                    scale: 1.0,
+                    color: Colors.red,
+                    colorBlendMode: BlendMode.srcATop,
                   ),
                 ),
                 IconButton(
@@ -274,7 +276,8 @@ void showShareBottomSheet({
                   onPressed: () {},
                   icon: Image.asset(
                     "assets/images/share-icons/instagram.png",
-                    scale: 1.0,
+                    color: Colors.red,
+                    colorBlendMode: BlendMode.srcATop,
                   ),
                 ),
                 IconButton(
@@ -282,20 +285,25 @@ void showShareBottomSheet({
                   onPressed: () {},
                   icon: Image.asset(
                     "assets/images/share-icons/telegram.png",
-                    scale: 1.0,
+                    color: Colors.red,
+                    colorBlendMode: BlendMode.srcATop,
                   ),
                 ),
               ],
             ),
+            SizedBox(
+              height: 2.h,
+            ),
             Wrap(
-              spacing: 2.w,
+              spacing: 4.w,
               children: [
                 IconButton(
                   splashRadius: 25.0,
                   onPressed: () {},
                   icon: Image.asset(
                     "assets/images/share-icons/linkedin.png",
-                    scale: 1.0,
+                    color: Colors.red,
+                    colorBlendMode: BlendMode.srcATop,
                   ),
                 ),
                 IconButton(
@@ -303,7 +311,8 @@ void showShareBottomSheet({
                   onPressed: () {},
                   icon: Image.asset(
                     "assets/images/share-icons/whatsapp.png",
-                    scale: 1.0,
+                    color: Colors.red,
+                    colorBlendMode: BlendMode.srcATop,
                   ),
                 ),
                 IconButton(
@@ -311,7 +320,8 @@ void showShareBottomSheet({
                   onPressed: () {},
                   icon: Image.asset(
                     "assets/images/share-icons/tiktok.png",
-                    scale: 1.0,
+                    color: Colors.red,
+                    colorBlendMode: BlendMode.srcATop,
                   ),
                 ),
                 IconButton(
@@ -319,7 +329,8 @@ void showShareBottomSheet({
                   onPressed: () {},
                   icon: Image.asset(
                     "assets/images/share-icons/youtube.png",
-                    scale: 1.0,
+                    color: Colors.red,
+                    colorBlendMode: BlendMode.srcATop,
                   ),
                 ),
               ],
@@ -401,95 +412,6 @@ void showContentOptionDialog(
               GestureDetector(
                 onTap: onReportPost,
                 child: const Text("Report this post"),
-              ),
-            ],
-          ),
-        ),
-      );
-    },
-  );
-}
-
-void showShareDialog(
-    {required BuildContext context,
-    VoidCallback? onShowPost,
-    VoidCallback? onReportPost}) {
-  showDialog(
-    context: context,
-    builder: (context) {
-      return AlertDialog(
-        insetPadding: EdgeInsets.symmetric(horizontal: 5.w),
-        contentPadding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 0.5.h),
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(20.0))),
-        content: ConstrainedBox(
-          constraints: const BoxConstraints(),
-          child: Wrap(
-            alignment: WrapAlignment.center,
-            children: [
-              IconButton(
-                splashRadius: 25.0,
-                onPressed: () {},
-                icon: Image.asset(
-                  "assets/images/share-icons/facebook.png",
-                  scale: 1.0,
-                ),
-              ),
-              IconButton(
-                splashRadius: 25.0,
-                onPressed: () {},
-                icon: Image.asset(
-                  "assets/images/share-icons/twitter.png",
-                  scale: 1.0,
-                ),
-              ),
-              IconButton(
-                splashRadius: 25.0,
-                onPressed: () {},
-                icon: Image.asset(
-                  "assets/images/share-icons/instagram.png",
-                  scale: 1.0,
-                ),
-              ),
-              IconButton(
-                splashRadius: 25.0,
-                onPressed: () {},
-                icon: Image.asset(
-                  "assets/images/share-icons/telegram.png",
-                  scale: 1.0,
-                ),
-              ),
-              IconButton(
-                splashRadius: 25.0,
-                onPressed: () {},
-                icon: Image.asset(
-                  "assets/images/share-icons/linkedin.png",
-                  scale: 1.0,
-                ),
-              ),
-              IconButton(
-                splashRadius: 25.0,
-                onPressed: () {},
-                icon: Image.asset(
-                  "assets/images/share-icons/whatsapp.png",
-                  scale: 1.0,
-                ),
-              ),
-              IconButton(
-                splashRadius: 25.0,
-                onPressed: () {},
-                icon: Image.asset(
-                  "assets/images/share-icons/tiktok.png",
-                  scale: 1.0,
-                ),
-              ),
-              IconButton(
-                splashRadius: 25.0,
-                onPressed: () {},
-                icon: Image.asset(
-                  "assets/images/share-icons/youtube.png",
-                  scale: 1.0,
-                ),
               ),
             ],
           ),

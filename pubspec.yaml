@@ -47,6 +47,9 @@ dependencies:
   blur: ^3.1.0
   shimmer: ^2.0.0
   appinio_social_share: ^0.2.0
+  http: ^0.13.5
+  hive: ^2.2.3
+  
 
 dev_dependencies:
   flutter_test:
@@ -58,6 +61,11 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  build_runner: ^2.3.2
+  freezed: ^2.2.1
+  freezed_annotation: ^2.2.0
+  json_serializable: ^6.5.4
+  
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -105,6 +113,7 @@ flutter:
     - assets/images/block-user.png
     - assets/images/doc-add.png
     - assets/images/chat-plus.png
+    - assets/videos/video-post-landscape.mov
     - assets/videos/video-post-landscape.mp4
     - assets/videos/video-post-potrait.mp4
     - assets/images/share-icons/facebook.png

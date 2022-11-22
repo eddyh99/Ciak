@@ -7,11 +7,11 @@ import 'package:ciak_live/widgets/backscreens/postfeed_header_widget.dart';
 import 'package:ciak_live/widgets/backscreens/profile_avatar_widget.dart';
 import 'package:ciak_live/widgets/backscreens/searchbar_widget.dart';
 import 'package:ciak_live/widgets/backscreens/gradient_button_widget.dart';
+import 'package:ciak_live/widgets/backscreens/storycard_shimmer_widget.dart';
 import 'package:ciak_live/widgets/backscreens/storycard_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
-import 'package:shimmer/shimmer.dart';
 
 class FeedsView extends StatefulWidget {
   const FeedsView({super.key});
@@ -192,24 +192,7 @@ class _FeedsViewState extends State<FeedsView> {
                           for (int x = 0; x < 4; x++) ...[
                             Padding(
                               padding: EdgeInsets.symmetric(horizontal: 1.w),
-                              child: Shimmer.fromColors(
-                                baseColor: Theme.of(context).brightness ==
-                                        Brightness.light
-                                    ? Colors.grey.shade300
-                                    : Colors.grey.shade800,
-                                highlightColor: Theme.of(context).brightness ==
-                                        Brightness.light
-                                    ? Colors.grey.shade100
-                                    : Colors.grey.shade600,
-                                child: Container(
-                                  height: 25.h,
-                                  width: 37.w,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10.sp),
-                                    color: Colors.grey,
-                                  ),
-                                ),
-                              ),
+                              child: const StoryCardShimmer(),
                             ),
                           ]
                         ],
@@ -485,7 +468,7 @@ class _FeedsViewState extends State<FeedsView> {
                               trailing: [
                                 IconButton(
                                   onPressed: () {
-                                    showShareDialog(context: context);
+                                    showShareBottomSheet(context: context);
                                   },
                                   icon: Icon(
                                     Icons.share_outlined,
@@ -591,7 +574,7 @@ class _FeedsViewState extends State<FeedsView> {
                           ),
                           PostFeedContent(
                             content: PostContent.video(
-                                "assets/videos/video-post-landscape.mp4",
+                                "assets/videos/video-post-landscape.mov",
                                 useController: true),
                           ),
                           Padding(
@@ -638,7 +621,7 @@ class _FeedsViewState extends State<FeedsView> {
                               trailing: [
                                 IconButton(
                                   onPressed: () {
-                                    showShareDialog(context: context);
+                                    showShareBottomSheet(context: context);
                                   },
                                   icon: Icon(
                                     Icons.share_outlined,
@@ -805,7 +788,7 @@ class _FeedsViewState extends State<FeedsView> {
                               trailing: [
                                 IconButton(
                                   onPressed: () {
-                                    showShareDialog(context: context);
+                                    showShareBottomSheet(context: context);
                                   },
                                   icon: Icon(
                                     Icons.share_outlined,

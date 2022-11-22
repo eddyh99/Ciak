@@ -1,4 +1,5 @@
 import 'package:ciak_live/controllers/settings_controller.dart';
+import 'package:ciak_live/controllers/user_controller.dart';
 import 'package:ciak_live/utils/extensions.dart';
 import 'package:ciak_live/views/backscreens/activity_detail_view.dart';
 import 'package:ciak_live/views/backscreens/activity_view.dart';
@@ -34,6 +35,7 @@ void main() async {
     DeviceOrientation.portraitUp,
   ]);
   Get.put<SettingsController>(SettingsController(), permanent: true);
+  Get.put<UserController>(UserController(), permanent: true);
   runApp(const MyApp());
 }
 

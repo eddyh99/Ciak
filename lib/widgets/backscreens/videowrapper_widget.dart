@@ -53,42 +53,57 @@ class _VideoWrapperState extends State<VideoWrapper> {
             : () {},
         child: ConstrainedBox(
           constraints: const BoxConstraints(),
-          child: Stack(
-            alignment: AlignmentDirectional.center,
-            children: [
-              _controller.value.isInitialized
-                  ? AspectRatio(
+          child: _controller.value.isInitialized
+              ? Stack(
+                  alignment: AlignmentDirectional.center,
+                  children: [
+                    AspectRatio(
                       aspectRatio:
                           widget.aspectRatio ?? _controller.value.aspectRatio,
                       child: VideoPlayer(_controller),
-                    )
-                  : Container(),
-              widget.useController
-                  ? IconButton(
-                      padding: EdgeInsets.zero,
-                      splashRadius: 25.0,
-                      onPressed: () {
-                        if (mounted) {
-                          setState(() {
-                            _controller.value.isPlaying
-                                ? _controller.pause()
-                                : _controller.play();
-                          });
-                        }
-                      },
-                      icon: _showController
-                          ? Icon(
-                              _controller.value.isPlaying
-                                  ? Icons.pause_circle_outline
-                                  : Icons.play_circle_outline,
-                              size: 50.sp,
-                              color: Colors.white.withOpacity(0.7),
-                            )
-                          : const SizedBox.shrink(),
-                    )
-                  : const SizedBox.shrink(),
-            ],
-          ),
+                    ),
+                    widget.useController
+                        ? IconButton(
+                            padding: EdgeInsets.zero,
+                            splashRadius: 25.0,
+                            onPressed: () {
+                              if (mounted) {
+                                setState(() {
+                                  _controller.value.isPlaying
+                                      ? _controller.pause()
+                                      : _controller.play();
+                                });
+                              }
+                            },
+                            icon: _showController
+                                ? Icon(
+                                    _controller.value.isPlaying
+                                        ? Icons.pause_circle_outline
+                                        : Icons.play_circle_outline,
+                                    size: 50.sp,
+                                    color: Colors.white.withOpacity(0.7),
+                                  )
+                                : const SizedBox.shrink(),
+                          )
+                        : const SizedBox.shrink(),
+                  ],
+                )
+              : AspectRatio(
+                  aspectRatio: widget.aspectRatio ?? (1 / 1),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.warning_amber_rounded,
+                        size: 18.sp,
+                      ),
+                      SizedBox(
+                        height: 1.h,
+                      ),
+                      const Text("Can't load video"),
+                    ],
+                  ),
+                ),
         ),
       ),
       onVisibilityChanged: (visibilityInfo) {

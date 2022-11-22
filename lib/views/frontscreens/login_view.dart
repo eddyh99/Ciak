@@ -1,3 +1,5 @@
+import 'package:ciak_live/controllers/user_controller.dart';
+import 'package:ciak_live/models/user/user_model.dart';
 import 'package:ciak_live/utils/extensions.dart';
 import 'package:ciak_live/widgets/frontscreens/background_widget.dart';
 import 'package:ciak_live/widgets/frontscreens/themeswitch_widget.dart';
@@ -17,6 +19,8 @@ class _LoginViewState extends State<LoginView> {
   final GlobalKey<FormState> _loginFormKey = GlobalKey<FormState>();
   final TextEditingController _emailTextController = TextEditingController();
   final TextEditingController _passwordTextController = TextEditingController();
+
+  final UserController userController = Get.find<UserController>();
 
   @override
   Widget build(BuildContext context) {
@@ -131,7 +135,19 @@ class _LoginViewState extends State<LoginView> {
                             child: ElevatedButton(
                               onPressed: () {
                                 if (_loginFormKey.currentState!.validate()) {
-                                  Get.offAllNamed("/back-screen/");
+                                  userController
+                                      .logIn(
+                                          email: _emailTextController.text,
+                                          password:
+                                              _passwordTextController.text)
+                                      .then((value) {
+                                    bool isLogged = value["login"];
+                                    if (isLogged) {
+                                      userController.signedUser =
+                                          UserModel.fromJson(value["user"]);
+                                      Get.offAllNamed("/back-screen/");
+                                    }
+                                  });
                                 }
                               },
                               child: const Text("Login"),
