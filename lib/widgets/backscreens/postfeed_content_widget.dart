@@ -1,6 +1,7 @@
 import 'package:ciak_live/utils/extensions.dart';
 import 'package:ciak_live/widgets/backscreens/videowrapper_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 class PostFeedContent extends StatelessWidget {
   const PostFeedContent(
@@ -29,6 +30,8 @@ class PostContent {
   PostContent();
 
   static Widget text(String text, {TextStyle? style}) {
+    return Html(data: text);
+    /*
     return Text.rich(
       style: style ?? TextStyle(height: 0.2.h),
       textAlign: TextAlign.justify,
@@ -36,6 +39,7 @@ class PostContent {
         text: text,
       ),
     );
+    */
   }
 
   static Widget image(Image image, {required double aspectRatio}) {

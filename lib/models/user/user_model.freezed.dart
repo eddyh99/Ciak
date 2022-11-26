@@ -29,7 +29,7 @@ mixin _$UserModel {
   @JsonKey(name: 'rcode')
   @HiveField(2)
   String get rcode => throw _privateConstructorUsedError;
-  @JsonKey(name: 'timezome')
+  @JsonKey(name: 'timezone')
   @HiveField(3)
   String? get timezone => throw _privateConstructorUsedError;
   @JsonKey(name: 'firstprofile')
@@ -38,6 +38,9 @@ mixin _$UserModel {
   @JsonKey(name: 'nickname')
   @HiveField(5)
   String get nickname => throw _privateConstructorUsedError;
+  @JsonKey(name: 'apikey')
+  @HiveField(5)
+  String get apiKey => throw _privateConstructorUsedError;
   @JsonKey(name: 'header')
   @HiveField(6)
   String? get headerImg => throw _privateConstructorUsedError;
@@ -60,9 +63,10 @@ abstract class $UserModelCopyWith<$Res> {
       {@JsonKey(name: 'id') @HiveField(0) String id,
       @JsonKey(name: 'ucode') @HiveField(1) String ucode,
       @JsonKey(name: 'rcode') @HiveField(2) String rcode,
-      @JsonKey(name: 'timezome') @HiveField(3) String? timezone,
+      @JsonKey(name: 'timezone') @HiveField(3) String? timezone,
       @JsonKey(name: 'firstprofile') @HiveField(4) bool? firstProfile,
       @JsonKey(name: 'nickname') @HiveField(5) String nickname,
+      @JsonKey(name: 'apikey') @HiveField(5) String apiKey,
       @JsonKey(name: 'header') @HiveField(6) String? headerImg,
       @JsonKey(name: 'profile') @HiveField(7) String? profileImg});
 }
@@ -86,6 +90,7 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
     Object? timezone = freezed,
     Object? firstProfile = freezed,
     Object? nickname = null,
+    Object? apiKey = null,
     Object? headerImg = freezed,
     Object? profileImg = freezed,
   }) {
@@ -114,6 +119,10 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
           ? _value.nickname
           : nickname // ignore: cast_nullable_to_non_nullable
               as String,
+      apiKey: null == apiKey
+          ? _value.apiKey
+          : apiKey // ignore: cast_nullable_to_non_nullable
+              as String,
       headerImg: freezed == headerImg
           ? _value.headerImg
           : headerImg // ignore: cast_nullable_to_non_nullable
@@ -137,9 +146,10 @@ abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
       {@JsonKey(name: 'id') @HiveField(0) String id,
       @JsonKey(name: 'ucode') @HiveField(1) String ucode,
       @JsonKey(name: 'rcode') @HiveField(2) String rcode,
-      @JsonKey(name: 'timezome') @HiveField(3) String? timezone,
+      @JsonKey(name: 'timezone') @HiveField(3) String? timezone,
       @JsonKey(name: 'firstprofile') @HiveField(4) bool? firstProfile,
       @JsonKey(name: 'nickname') @HiveField(5) String nickname,
+      @JsonKey(name: 'apikey') @HiveField(5) String apiKey,
       @JsonKey(name: 'header') @HiveField(6) String? headerImg,
       @JsonKey(name: 'profile') @HiveField(7) String? profileImg});
 }
@@ -161,6 +171,7 @@ class __$$_UserModelCopyWithImpl<$Res>
     Object? timezone = freezed,
     Object? firstProfile = freezed,
     Object? nickname = null,
+    Object? apiKey = null,
     Object? headerImg = freezed,
     Object? profileImg = freezed,
   }) {
@@ -189,6 +200,10 @@ class __$$_UserModelCopyWithImpl<$Res>
           ? _value.nickname
           : nickname // ignore: cast_nullable_to_non_nullable
               as String,
+      apiKey: null == apiKey
+          ? _value.apiKey
+          : apiKey // ignore: cast_nullable_to_non_nullable
+              as String,
       headerImg: freezed == headerImg
           ? _value.headerImg
           : headerImg // ignore: cast_nullable_to_non_nullable
@@ -209,9 +224,10 @@ class _$_UserModel implements _UserModel {
       {@JsonKey(name: 'id') @HiveField(0) required this.id,
       @JsonKey(name: 'ucode') @HiveField(1) required this.ucode,
       @JsonKey(name: 'rcode') @HiveField(2) required this.rcode,
-      @JsonKey(name: 'timezome') @HiveField(3) this.timezone,
+      @JsonKey(name: 'timezone') @HiveField(3) this.timezone,
       @JsonKey(name: 'firstprofile') @HiveField(4) this.firstProfile,
       @JsonKey(name: 'nickname') @HiveField(5) required this.nickname,
+      @JsonKey(name: 'apikey') @HiveField(5) required this.apiKey,
       @JsonKey(name: 'header') @HiveField(6) this.headerImg,
       @JsonKey(name: 'profile') @HiveField(7) this.profileImg});
 
@@ -231,7 +247,7 @@ class _$_UserModel implements _UserModel {
   @HiveField(2)
   final String rcode;
   @override
-  @JsonKey(name: 'timezome')
+  @JsonKey(name: 'timezone')
   @HiveField(3)
   final String? timezone;
   @override
@@ -243,6 +259,10 @@ class _$_UserModel implements _UserModel {
   @HiveField(5)
   final String nickname;
   @override
+  @JsonKey(name: 'apikey')
+  @HiveField(5)
+  final String apiKey;
+  @override
   @JsonKey(name: 'header')
   @HiveField(6)
   final String? headerImg;
@@ -253,7 +273,7 @@ class _$_UserModel implements _UserModel {
 
   @override
   String toString() {
-    return 'UserModel(id: $id, ucode: $ucode, rcode: $rcode, timezone: $timezone, firstProfile: $firstProfile, nickname: $nickname, headerImg: $headerImg, profileImg: $profileImg)';
+    return 'UserModel(id: $id, ucode: $ucode, rcode: $rcode, timezone: $timezone, firstProfile: $firstProfile, nickname: $nickname, apiKey: $apiKey, headerImg: $headerImg, profileImg: $profileImg)';
   }
 
   @override
@@ -270,6 +290,7 @@ class _$_UserModel implements _UserModel {
                 other.firstProfile == firstProfile) &&
             (identical(other.nickname, nickname) ||
                 other.nickname == nickname) &&
+            (identical(other.apiKey, apiKey) || other.apiKey == apiKey) &&
             (identical(other.headerImg, headerImg) ||
                 other.headerImg == headerImg) &&
             (identical(other.profileImg, profileImg) ||
@@ -279,7 +300,7 @@ class _$_UserModel implements _UserModel {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, ucode, rcode, timezone,
-      firstProfile, nickname, headerImg, profileImg);
+      firstProfile, nickname, apiKey, headerImg, profileImg);
 
   @JsonKey(ignore: true)
   @override
@@ -306,7 +327,7 @@ abstract class _UserModel implements UserModel {
       @JsonKey(name: 'rcode')
       @HiveField(2)
           required final String rcode,
-      @JsonKey(name: 'timezome')
+      @JsonKey(name: 'timezone')
       @HiveField(3)
           final String? timezone,
       @JsonKey(name: 'firstprofile')
@@ -315,6 +336,9 @@ abstract class _UserModel implements UserModel {
       @JsonKey(name: 'nickname')
       @HiveField(5)
           required final String nickname,
+      @JsonKey(name: 'apikey')
+      @HiveField(5)
+          required final String apiKey,
       @JsonKey(name: 'header')
       @HiveField(6)
           final String? headerImg,
@@ -338,7 +362,7 @@ abstract class _UserModel implements UserModel {
   @HiveField(2)
   String get rcode;
   @override
-  @JsonKey(name: 'timezome')
+  @JsonKey(name: 'timezone')
   @HiveField(3)
   String? get timezone;
   @override
@@ -349,6 +373,10 @@ abstract class _UserModel implements UserModel {
   @JsonKey(name: 'nickname')
   @HiveField(5)
   String get nickname;
+  @override
+  @JsonKey(name: 'apikey')
+  @HiveField(5)
+  String get apiKey;
   @override
   @JsonKey(name: 'header')
   @HiveField(6)

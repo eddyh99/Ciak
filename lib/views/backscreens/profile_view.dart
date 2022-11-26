@@ -1,3 +1,5 @@
+import 'package:ciak_live/controllers/app_prefs_controller.dart';
+import 'package:ciak_live/controllers/user_controller.dart';
 import 'package:ciak_live/utils/extensions.dart';
 import 'package:ciak_live/utils/functions.dart';
 import 'package:ciak_live/views/backscreens/profiletabs/profile_publictab_view.dart';
@@ -18,6 +20,7 @@ class ProfileView extends StatefulWidget {
 }
 
 class _ProfileViewState extends State<ProfileView> {
+  final UserController userController = Get.find<UserController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,7 +74,9 @@ class _ProfileViewState extends State<ProfileView> {
                                 ),
                                 IconButton(
                                   splashRadius: 25.0,
-                                  onPressed: () {
+                                  onPressed: () async {
+                                    userController.signedUser = null;
+                                    await AppPrefs.prefsStorage.delete("user");
                                     Get.offAllNamed("/front-screen/landing");
                                   },
                                   icon: Container(

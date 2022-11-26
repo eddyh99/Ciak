@@ -12,9 +12,10 @@ class UserModel with _$UserModel {
     @JsonKey(name: 'id') @HiveField(0) required String id,
     @JsonKey(name: 'ucode') @HiveField(1) required String ucode,
     @JsonKey(name: 'rcode') @HiveField(2) required String rcode,
-    @JsonKey(name: 'timezome') @HiveField(3) String? timezone,
+    @JsonKey(name: 'timezone') @HiveField(3) String? timezone,
     @JsonKey(name: 'firstprofile') @HiveField(4) bool? firstProfile,
     @JsonKey(name: 'nickname') @HiveField(5) required String nickname,
+    @JsonKey(name: 'apikey') @HiveField(5) required String apiKey,
     @JsonKey(name: 'header') @HiveField(6) String? headerImg,
     @JsonKey(name: 'profile') @HiveField(7) String? profileImg,
   }) = _UserModel;

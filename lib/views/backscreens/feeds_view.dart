@@ -1,3 +1,6 @@
+import 'package:ciak_live/controllers/feeds_controller.dart';
+import 'package:ciak_live/controllers/user_controller.dart';
+import 'package:ciak_live/models/post/post_model.dart';
 import 'package:ciak_live/utils/extensions.dart';
 import 'package:ciak_live/utils/functions.dart';
 import 'package:ciak_live/widgets/backscreens/notification_indicator_widget.dart';
@@ -23,6 +26,16 @@ class FeedsView extends StatefulWidget {
 }
 
 class _FeedsViewState extends State<FeedsView> {
+  final UserController userController = Get.find<UserController>();
+  final FeedsController feedsController = Get.find<FeedsController>();
+
+  @override
+  void initState() {
+    super.initState();
+    feedsController.fetchDashboardFeed(userController.signedUser!.timezone!,
+        userController.signedUser!.apiKey);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -201,6 +214,176 @@ class _FeedsViewState extends State<FeedsView> {
                   ),
                 ),
                 const Divider(),
+                GetBuilder<FeedsController>(
+                  builder: (controller) {
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        for (PostModel post in controller.feeds) ...[
+                          postShimmer(
+                            SizedBox(
+                              //Feeds post
+                              child: Column(
+                                children: [
+                                  PostFeedHeader(
+                                    leading: GestureDetector(
+                                      onTap: () {
+                                        Get.toNamed(
+                                            "/back-screen/users-profile",
+                                            arguments: {"userId": post.ucode});
+                                      },
+                                      child: ProfileAvatar(
+                                        image: Image.network(post.profile!),
+                                        radius: 16.sp,
+                                      ),
+                                    ),
+                                    title: post.nickname!,
+                                    subtitle: "30m ago",
+                                    trailing: [
+                                      IconButton(
+                                        onPressed: () {
+                                          showContentBottomSheet(
+                                            context: context,
+                                            price: "\$ 2.00",
+                                            text:
+                                                "Are you sure to buy this content?",
+                                            onConfirm: () =>
+                                                Navigator.pop(context),
+                                          );
+                                        },
+                                        icon: Image.asset(
+                                          "assets/images/cart.png",
+                                          scale: 1.0,
+                                        ),
+                                        splashRadius: 15.sp,
+                                      ),
+                                      IconButton(
+                                        onPressed: () {
+                                          final TextEditingController
+                                              tipController =
+                                              TextEditingController(
+                                                  text: "0.00");
+                                          showContentTipDialog(
+                                            context: context,
+                                            controller: tipController,
+                                            prefixCurrency: "\$",
+                                            onConfirm: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                          );
+                                        },
+                                        icon: Image.asset(
+                                          "assets/images/tip.png",
+                                          scale: 1.0,
+                                        ),
+                                        splashRadius: 15.sp,
+                                      ),
+                                      IconButton(
+                                        onPressed: () {
+                                          showContentOptionDialog(
+                                              context: context,
+                                              onShowPost: () {},
+                                              onReportPost: () {});
+                                        },
+                                        icon: const Icon(Icons.more_vert),
+                                        splashRadius: 15.sp,
+                                      )
+                                    ],
+                                  ),
+                                  PostFeedContent(
+                                    content:
+                                        PostContent.text(post.description!),
+                                  ),
+                                  Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 3.w),
+                                    child: PostFeedFooter(
+                                      leading: Row(
+                                        children: [
+                                          IconButton(
+                                            onPressed: () {},
+                                            icon: Icon(
+                                              Icons.favorite_outline,
+                                              size: 15.sp,
+                                            ),
+                                            splashRadius: 15.sp,
+                                            iconSize: 15.sp,
+                                          ),
+                                          Text(
+                                            "414",
+                                            style: TextStyle(fontSize: 10.sp),
+                                          ),
+                                        ],
+                                      ),
+                                      ratingBar: RatingBar(
+                                        itemSize: 14.sp,
+                                        initialRating: 0,
+                                        direction: Axis.horizontal,
+                                        allowHalfRating: false,
+                                        itemCount: 5,
+                                        ratingWidget: RatingWidget(
+                                          full: const Icon(
+                                            Icons.star,
+                                            color: Colors.yellow,
+                                          ),
+                                          half: const Icon(
+                                            Icons.star_half,
+                                            color: Colors.yellow,
+                                          ),
+                                          empty: const Icon(Icons.star),
+                                        ),
+                                        onRatingUpdate: (rating) {
+                                          printDebug(rating);
+                                        },
+                                      ),
+                                      trailing: [
+                                        IconButton(
+                                          onPressed: () {
+                                            showShareBottomSheet(
+                                                context: context);
+                                          },
+                                          icon: Icon(
+                                            Icons.share_outlined,
+                                            size: 15.sp,
+                                          ),
+                                          splashRadius: 15.sp,
+                                          iconSize: 15.sp,
+                                        ),
+                                        IconButton(
+                                          onPressed: () {},
+                                          icon: Image.asset(
+                                            "assets/images/vs.png",
+                                            scale: 1.2,
+                                            color:
+                                                Colors.white.withOpacity(0.5),
+                                            colorBlendMode: BlendMode.srcATop,
+                                          ),
+                                          splashRadius: 15.sp,
+                                          iconSize: 15.sp,
+                                        ),
+                                        IconButton(
+                                          onPressed: () {},
+                                          icon: Icon(
+                                            Icons.bookmark_border_outlined,
+                                            size: 15.sp,
+                                          ),
+                                          splashRadius: 15.sp,
+                                          iconSize: 15.sp,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          const Divider(),
+                        ]
+                      ],
+                    );
+                  },
+                )
+                /*
                 postShimmer(
                   SizedBox(
                     //Feeds post
@@ -824,6 +1007,7 @@ class _FeedsViewState extends State<FeedsView> {
                       ),
                     ),
                     isMedia: true),
+                    */
               ],
             ),
           ),

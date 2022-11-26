@@ -1,6 +1,12 @@
+import 'dart:convert';
+
+import 'package:ciak_live/controllers/app_prefs_controller.dart';
+import 'package:ciak_live/controllers/feeds_controller.dart';
 import 'package:ciak_live/controllers/settings_controller.dart';
 import 'package:ciak_live/controllers/user_controller.dart';
+import 'package:ciak_live/models/user/user_model.dart';
 import 'package:ciak_live/utils/extensions.dart';
+import 'package:ciak_live/utils/functions.dart';
 import 'package:ciak_live/views/backscreens/activity_detail_view.dart';
 import 'package:ciak_live/views/backscreens/activity_view.dart';
 import 'package:ciak_live/views/backscreens/alert_view.dart';
@@ -34,8 +40,10 @@ void main() async {
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
+  await AppPrefs.initialize();
   Get.put<SettingsController>(SettingsController(), permanent: true);
   Get.put<UserController>(UserController(), permanent: true);
+  Get.put<FeedsController>(FeedsController());
   runApp(const MyApp());
 }
 
@@ -378,12 +386,24 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
+  final UserController userController = Get.find<UserController>();
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       Future.delayed(const Duration(seconds: 3), () {
-        Get.offNamed('/front-screen/landing');
+        if (AppPrefs.prefsStorage.containsKey("user")) {
+          var storedUser = AppPrefs.prefsStorage.get("user");
+          if (storedUser != null) {
+            userController.signedUser =
+                UserModel.fromJson(Map<String, dynamic>.from(storedUser));
+            Get.offNamed("/back-screen/");
+          } else {
+            Get.offNamed('/front-screen/landing');
+          }
+        } else {
+          Get.offNamed('/front-screen/landing');
+        }
       });
     });
   }

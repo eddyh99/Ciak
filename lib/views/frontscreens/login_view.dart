@@ -1,6 +1,8 @@
+import 'package:ciak_live/controllers/app_prefs_controller.dart';
 import 'package:ciak_live/controllers/user_controller.dart';
 import 'package:ciak_live/models/user/user_model.dart';
 import 'package:ciak_live/utils/extensions.dart';
+import 'package:ciak_live/utils/functions.dart';
 import 'package:ciak_live/widgets/frontscreens/background_widget.dart';
 import 'package:ciak_live/widgets/frontscreens/themeswitch_widget.dart';
 import 'package:flutter/material.dart';
@@ -140,12 +142,18 @@ class _LoginViewState extends State<LoginView> {
                                           email: _emailTextController.text,
                                           password:
                                               _passwordTextController.text)
-                                      .then((value) {
+                                      .then((value) async {
                                     bool isLogged = value["login"];
                                     if (isLogged) {
                                       userController.signedUser =
-                                          UserModel.fromJson(value["user"]);
+                                          UserModel.fromJson(value["message"]);
+                                      await AppPrefs.prefsStorage.put("user",
+                                          userController.signedUser!.toJson());
                                       Get.offAllNamed("/back-screen/");
+                                    } else {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(SnackBar(
+                                              content: Text(value["message"])));
                                     }
                                   });
                                 }
